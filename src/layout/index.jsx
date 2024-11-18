@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 
 import { Fragment, useEffect, useState } from "react";
-import NProgress from "nprogress";
 import { useLocation } from "react-router-dom";
 import AuthLayout from "./auth/index";
 import MainLayout from "./main/index";
@@ -18,11 +17,9 @@ const Layout = ({ children }) => {
   const currentPath = pathname;
   if (currentPath !== pPath) {
     window.scrollTo(0, 0);
-    NProgress.start();
   }
 
   setTimeout(() => {
-    NProgress.done();
     setPPath(currentPath);
   }, 3000);
 
@@ -33,6 +30,7 @@ const Layout = ({ children }) => {
   };
 
   const Container = Layouts[getLayout()];
+  Layout["auth"]
 
   useEffect(() => {
     window.scrollTo(0, 0);
