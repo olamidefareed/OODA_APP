@@ -32,6 +32,7 @@ const LoginPage = () => {
                 type="text"
                 placeholder="e.g johndoe@gmail.com"
                 size="large"
+                required
               />
             </Form.Item>
             <Form.Item
@@ -40,23 +41,34 @@ const LoginPage = () => {
               layout="vertical"
               name="password"
             >
-              <Input.Password size="large" />
+              <Input.Password size="large"
+              placeholder="***********" />
             </Form.Item>
             <p className="cursor-pointer font-semibold text-left w-full mb-5 md:mb-0">
               Forgot Password?
             </p>
             <Button
               htmlType="submit"
-              className="w-full"
-              type="primary"
+              className="w-full bg-purple text-white"
               size="large"
             >
               Submit
             </Button>
+            
           </Form>
           <Divider className="!m-0 !font-bold !text-xs">
             Or Sign in with
           </Divider>
+          <Button
+              htmlType="submit"
+              className="w-full text-black"
+              size="large"
+            >
+              GOOGLE
+            </Button>
+            <p className="!m-0 !font-bold !text-xs">
+            Dont have an account? Create Account. 
+          </p>
         </div>
       </div>
     </div>

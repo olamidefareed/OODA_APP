@@ -1,7 +1,7 @@
 const Logo = (size) => {
   return (
     <div className="w-fit">
-      <img src="/" alt="Logo" width={size || 30} />
+      <img src="/Logo.svg" alt="Logo" width={size || 30} />
     </div>
   );
 };
