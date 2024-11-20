@@ -2,6 +2,7 @@ import { lazy } from "react";
 
 const HomePage = lazy(() => import("../pages/main/home"));
 const LoginPage = lazy(()=> import("../pages/auth/Login"));
+const CreateAccountPage = lazy(()=> import("../pages/auth/Create-account"))
 const ResetPasswordPage =lazy(()=>("../pages/auth/reset-password"));
 
 export const AllRoutes = [
@@ -18,6 +19,11 @@ export const AllRoutes = [
     component: LoginPage,
     name : "Login Page"
   },
+
+  {
+    key:"/auth/create-account",
+    component: CreateAccountPage,
+    name : "Create-account Page"},
   {
     key:"/auth/reset-password",
     component:ResetPasswordPage,
