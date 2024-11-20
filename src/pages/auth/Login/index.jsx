@@ -1,92 +1,66 @@
-// const LoginPage = ()=>{
-//     return(
-//         <div className="p-5">
-            
+import { Button, Divider, Form, Input } from "antd";
+import Logo from "../../../components/logo";
 
-//             <div className="rounded border-2 p-">
-//                 <div className="">
-//                     <h3>Login your account! </h3>
-//                     <p>Welcome back to Our App once again, we are dedicated to serve you better all the time.</p>
-//                 </div>
-//                 <form action="">
-//                     <div className="">
-//                     <label htmlFor="username">Enter Username/Email address:</label>
-//                     <input type="text" placeholder="Enter your email address"/>
-//                     </div>
-//                     <div className="">
-//                     <label htmlFor="username">Enter Username/Email address:</label>
-//                     <input type="text" placeholder="Enter your email address"/> 
-//                     </div>
-//                 </form>
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default LoginPage
-
-
-// import React from "react";
-import { Form, Input, Button, Checkbox } from "antd";
-import { UserOutlined, LockOutlined } from "@ant-design/icons";
-
-const LoginForm = () => {
-  const onFinish = (values) => {
-    console.log("Success:", values);
-  };
-
-  const onFinishFailed = (errorInfo) => {
-    console.error("Failed:", errorInfo);
-  };
-
+const LoginPage = () => {
+  const [form] = Form.useForm();
   return (
-    <div style={{ maxWidth: "400px", margin: "0 auto", padding: "50px 20px" }}>
-      <Form
-        name="login"
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
-        layout="vertical"
-      >
-        <Form.Item
-          label="Username"
-          name="username"
-          rules={[
-            { required: true, message: "Please input your username!" },
-          ]}
-        >
-          <Input
-            prefix={<UserOutlined />}
-            placeholder="Username"
-          />
-        </Form.Item>
-
-        <Form.Item
-          label="Password"
-          name="password"
-          rules={[
-            { required: true, message: "Please input your password!" },
-          ]}
-        >
-          <Input.Password
-            prefix={<LockOutlined />}
-            placeholder="Password"
-          />
-        </Form.Item>
-
-        <Form.Item name="remember" valuePropName="checked">
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
-
-        <Form.Item>
-          <Button type="primary" htmlType="submit" block>
-            Login
-          </Button>
-        </Form.Item>
-      </Form>
+    <div className="flex justify-center items-center w-screen h-full">
+      <div className="flex flex-col justify-center items-start md:items-center gap-6">
+        <div className="px-5">
+          <Logo />
+        </div>
+        <div className="md:border-2 md:border-[#0A0611]/5 rounded-[24px] p-5 md:p-10 flex flex-col justify-center items-center gap-6">
+          <h1 className="font-bold text-2xl md:text-[40px] w-full text-left">
+            Login your Account!
+          </h1>
+          <p className=" text-xs md:text-sm w-full text-left">
+            Welcome back to Our App once again, we are dedicated to serve you
+            better all the time.
+          </p>
+          <Form
+            form={form}
+            onFinish={(e) => alert(e.email)}
+            className="w-full flex justify-center items-center md:gap-8 flex-col"
+          >
+            <Form.Item
+              label={<span className="font-semibold">Email address:</span>}
+              className="w-full"
+              layout="vertical"
+              name="email"
+            >
+              <Input
+                type="text"
+                placeholder="e.g johndoe@gmail.com"
+                size="large"
+              />
+            </Form.Item>
+            <Form.Item
+              label={<span className="font-semibold">Password:</span>}
+              className="w-full"
+              layout="vertical"
+              name="password"
+            >
+              <Input.Password size="large" />
+            </Form.Item>
+            <p className="cursor-pointer font-semibold text-left w-full mb-5 md:mb-0">
+              Forgot Password?
+            </p>
+            <Button
+              htmlType="submit"
+              className="w-full"
+              type="primary"
+              size="large"
+            >
+              Submit
+            </Button>
+          </Form>
+          <Divider className="!m-0 !font-bold !text-xs">
+            Or Sign in with
+          </Divider>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default LoginForm;
+export default LoginPage;
