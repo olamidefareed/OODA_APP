@@ -34,10 +34,10 @@ const ChangePassword = () => {
               />
             </Form.Item>
             <Form.Item
-              label={<span className="font-semibold">Password:</span>}
+              label={<span className="font-semibold">Confirm Password:</span>}
               className="w-full"
               layout="vertical"
-              name="password"
+              name="confirm_password"
             >
               <Input.Password size="large"
               placeholder="*****" />

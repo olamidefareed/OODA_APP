@@ -91,7 +91,7 @@ const CreateAccount = () => {
               }
               className="w-full"
               layout="vertical"
-              name="password"
+              name="confirm_password"
             >
               <Input.Password
                 type="text"
